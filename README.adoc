@@ -1,1 +1,5 @@
-# jpa-project-v2-cinema
+= Cinema Project with JPA
+
+A Cinema Management System built using Java and JPA (Java Persistence API).
+It provides features for managing movies, screenings, bookings, and customers within a cinema.
+
