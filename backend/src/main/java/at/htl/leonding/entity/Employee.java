@@ -7,8 +7,6 @@ import java.time.LocalDate;
 
 @Entity
 public class Employee extends Person {
-
-
     @Enumerated(EnumType.STRING)
     @Column
     private Department department;
@@ -19,11 +17,10 @@ public class Employee extends Person {
     @Column
     private LocalDate hireDate;
 
-    public Employee() {
-    }
+    public Employee() {}
 
-    public Employee(String name, String address, String email, String phoneNumber, int age, Department department, double salary, LocalDate hireDate) {
-        super(name, address, email, phoneNumber, age);
+    public Employee(String name, String email, String phoneNumber, int age, Department department, double salary, LocalDate hireDate) {
+        super(name, email, phoneNumber, age);
         this.department = department;
         this.salary = salary;
         this.hireDate = hireDate;

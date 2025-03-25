@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import javax.annotation.processing.Generated;
 
-@Entity
+@MappedSuperclass
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,8 +12,6 @@ public class Person {
 
     @Column
     private String name;
-    @Column
-    private String address;
     @Column
     private String email;
     @Column
@@ -24,9 +22,8 @@ public class Person {
     public Person() {
     }
 
-    public Person(String name, String address, String email, String phoneNumber, int age) {
+    public Person(String name, String email, String phoneNumber, int age) {
         this.name = name;
-        this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.age = age;
@@ -46,14 +43,6 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getEmail() {
