@@ -4,6 +4,8 @@ import at.htl.leonding.entity.enumerations.Genre;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
+import java.time.LocalDate;
+
 @Entity
 public class Customer extends Person {
 
@@ -14,8 +16,8 @@ public class Customer extends Person {
     public Customer() {
     }
 
-    public Customer(String name, String address, String email, String phoneNumber, int age, Genre favoriteGenre) {
-        super(name, email, phoneNumber, age);
+    public Customer(String name, String email, String phoneNumber, LocalDate birthDate, Genre favoriteGenre) {
+        super(name, email, phoneNumber, birthDate);
         this.favoriteGenre = favoriteGenre;
     }
 
