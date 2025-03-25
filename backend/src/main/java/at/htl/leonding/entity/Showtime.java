@@ -17,11 +17,11 @@ public class Showtime {
 
     @ManyToOne
     @JoinColumn(name = "movie_id")
-    Movie movie;
+    private Movie movie;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
-    ScreeningRoom room;
+    private ScreeningRoom room;
 
     public ScreeningRoom getRoom() {
         return room;
