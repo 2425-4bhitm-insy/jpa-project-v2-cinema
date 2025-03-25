@@ -13,6 +13,7 @@ public class Movie {
     @Column
     private String titel;
 
+    @Enumerated(EnumType.STRING)
     @Column
     private Genre genre;
 
