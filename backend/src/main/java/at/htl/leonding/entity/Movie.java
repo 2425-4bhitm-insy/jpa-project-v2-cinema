@@ -11,7 +11,7 @@ public class Movie {
     private Long id;
 
     @Column
-    private String title;
+    private String titel;
 
     @Enumerated(EnumType.STRING)
     @Column
@@ -26,8 +26,8 @@ public class Movie {
     @Column
     private String description;
 
-    public Movie(String title, Genre genre, int duration, int ageRating, String description) {
-        this.title = title;
+    public Movie(String titel, Genre genre, int duration, int ageRating, String description) {
+        this.titel = titel;
         this.genre = genre;
         this.duration = duration;
         this.ageRating = ageRating;
@@ -39,11 +39,11 @@ public class Movie {
     }
 
     public String getTitel() {
-        return title;
+        return titel;
     }
 
-    public void setTitel(String title) {
-        this.title = title;
+    public void setTitel(String titel) {
+        this.titel = titel;
     }
 
     public Genre getGenre() {
