@@ -3,6 +3,8 @@ package at.htl.leonding.entity;
 import jakarta.persistence.*;
 
 import javax.annotation.processing.Generated;
+import java.time.LocalDate;
+import java.util.Date;
 
 @MappedSuperclass
 public class Person {
@@ -17,16 +19,16 @@ public class Person {
     @Column
     private String phoneNumber;
     @Column
-    private int age;
+    private LocalDate birthDate;
 
     public Person() {
     }
 
-    public Person(String name, String email, String phoneNumber, int age) {
+    public Person(String name, String email, String phoneNumber, LocalDate birthDate) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.age = age;
+        this.birthDate = birthDate;
     }
 
     public Long getId() {
@@ -61,11 +63,11 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getAge() {
-        return age;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 }
