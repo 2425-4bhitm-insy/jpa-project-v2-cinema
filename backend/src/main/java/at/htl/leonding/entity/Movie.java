@@ -3,6 +3,8 @@ package at.htl.leonding.entity;
 import at.htl.leonding.entity.enumerations.Genre;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 public class Movie {
 
@@ -26,7 +28,10 @@ public class Movie {
     @Column
     private String description;
 
-    public Movie(String titel, Genre genre, int duration, int ageRating, String description) {
+    @Column
+    LocalDate releaseDate;
+
+    public Movie(String titel, Genre genre, int duration, int ageRating, String description, LocalDate releaseDate) {
         this.titel = titel;
         this.genre = genre;
         this.duration = duration;
@@ -36,6 +41,14 @@ public class Movie {
 
     public Movie() {
 
+    }
+
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public String getTitel() {
@@ -67,6 +80,9 @@ public class Movie {
     }
 
     public void setAgeRating(int ageRating) {
+        if(ageRating > 18 || ageRating < 0) {
+            throw new IllegalArgumentException("Age rating must be between 0 and 18");
+        }
         this.ageRating = ageRating;
     }
 
