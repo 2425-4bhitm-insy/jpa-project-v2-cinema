@@ -1,3 +1,7 @@
 ### GET all movies
-GET http://localhost:8080/api/movies/all
-Content-Type: */*
+GET http://localhost:8080/api/movies
+Content-Type: application/json
+
+###
+GET http://localhost:8080/api/employees
+Content-Type: application/json

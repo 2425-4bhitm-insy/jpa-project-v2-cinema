@@ -1,26 +1,26 @@
 package at.htl.leonding.boundary;
 
-import at.htl.leonding.control.MovieRepo;
-import at.htl.leonding.entity.Movie;
+import at.htl.leonding.control.EmployeeRepo;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
-import java.util.List;
-
-@Path("movies")
+@Path("employees")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class MovieResource {
+public class EmployeeResource {
 
     @Inject
-    MovieRepo movieRepo;
+    EmployeeRepo employeeRepo;
 
     @GET
-    public List<Movie> getAllMovies() {
-        return movieRepo.getAll();
+    public Response getAllEmployees() {
+        employeeRepo.getAll();
+        return Response.ok(employeeRepo.getAll()).build();
     }
+
 }
