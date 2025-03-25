@@ -31,8 +31,8 @@ public class Movie {
     @Column
     LocalDate releaseDate;
 
-    public Movie(String titel, Genre genre, int duration, int ageRating, String description, LocalDate releaseDate) {
-        this.titel = titel;
+    public Movie(String title, Genre genre, int duration, int ageRating, String description, LocalDate releaseDate) {
+        this.title = title;
         this.genre = genre;
         this.duration = duration;
         this.ageRating = ageRating;
@@ -51,12 +51,12 @@ public class Movie {
         this.releaseDate = releaseDate;
     }
 
-    public String getTitel() {
-        return titel;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitel(String titel) {
-        this.titel = titel;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Genre getGenre() {
