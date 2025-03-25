@@ -1,10 +1,7 @@
 package at.htl.leonding.entity;
 
 import jakarta.inject.Inject;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -19,9 +16,11 @@ public class Showtime {
     private LocalDateTime showDateTime;
 
     @ManyToOne
+    @JoinColumn(name = "movie_id")
     Movie movie;
 
     @ManyToOne
+    @JoinColumn(name = "room_id")
     ScreeningRoom room;
 
     public ScreeningRoom getRoom() {
