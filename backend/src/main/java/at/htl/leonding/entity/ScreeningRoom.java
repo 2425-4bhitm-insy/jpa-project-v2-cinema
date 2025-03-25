@@ -15,6 +15,31 @@ public class ScreeningRoom {
     @Column
     private int seats;
 
+    public ScreeningRoom(int roomNumber, int seats) {
+        this.roomNumber = roomNumber;
+        this.seats = seats;
+    }
+
+    public ScreeningRoom() {
+
+    }
+
+    public int getSeats() {
+        return seats;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
+
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
