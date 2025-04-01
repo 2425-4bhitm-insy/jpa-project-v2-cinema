@@ -9,6 +9,7 @@ import at.htl.leonding.control.ShowtimeRepo;
 import java.time.LocalDate;
 import java.util.List;
 
+
 @Path("showtime")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -19,10 +20,9 @@ public class ShowtimeResource {
 
 
     @GET
-    @Path("/by-date{date}")
-    public List<Showtime> getShowtimeByDate(@PathParam("date") LocalDate date) {
-        return showTimeRepo.getShowtimeByDate(date);
+    @Path("/by-date/{date}")
+    public List<Showtime> getShowtimeByDate(@PathParam("date") String date) {
+        return showTimeRepo.getShowtimeByDate(LocalDate.parse(date));
     }
-
 
 }
