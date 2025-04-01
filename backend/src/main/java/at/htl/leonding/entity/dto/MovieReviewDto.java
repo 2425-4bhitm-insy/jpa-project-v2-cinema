@@ -5,9 +5,9 @@ import io.quarkus.runtime.annotations.RegisterForReflection;
 @RegisterForReflection
 public class MovieReviewDto {
     String movieTitle;
-    int rating;
+    Double rating;
 
-    public MovieReviewDto(String movieTitle, int rating) {
+    public MovieReviewDto(String movieTitle, Double rating) {
         this.movieTitle = movieTitle;
         this.rating = rating;
     }

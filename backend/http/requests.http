@@ -17,3 +17,7 @@ GET http://localhost:8080/api/equipment/
 ### GET equipment by Id
 
 GET http://localhost:8080/api/equipment/2
+
+### GET all movies by rating
+
+GET http://localhost:8080/api/movies/sorted-by-rating
