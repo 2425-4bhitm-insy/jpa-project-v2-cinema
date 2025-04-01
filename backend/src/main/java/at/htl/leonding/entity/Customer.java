@@ -1,21 +1,27 @@
 package at.htl.leonding.entity;
-
-import at.htl.leonding.entity.enumerations.Genre;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
 public class Customer extends Person {
 
+
+    @Column
+    private int loyaltyPoints;
+
+    @ManyToOne
+    @JoinColumn(name = "favorite_genre")
+    private Genre favoriteGenre;
+
+
     public Customer() {
     }
 
-    public Customer(String name, String email, String phoneNumber, LocalDate birthDate, Genre favoriteGenre) {
+    public Customer(String name, String email, String phoneNumber, LocalDate birthDate) {
         super(name, email, phoneNumber, birthDate);
     }
+
+
 
 }
