@@ -13,7 +13,7 @@ public class EquipmentRepo implements PanacheRepository<Equipment> {
         return listAll().stream().toList();
     }
 
-    public Equipment findById(int id) {
+    public Equipment findEquipmentById(Long id) {
         return findById(id);
     }
 }
