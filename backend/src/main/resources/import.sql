@@ -23,3 +23,14 @@ INSERT INTO Customer (name, email, phoneNumber, birthDate, favoriteGenre) VALUES
     ('Charlie Lee', 'charlie.lee@example.com', '333-444-5555', '1994-10-14', 'SCI_FI'),
     ('Diana Cooper',  'diana.cooper@example.com', '444-555-6666', '1994-10-14', 'DRAMA'),
     ('Ethan Wright', 'ethan.wright@example.com', '555-666-7777', '1994-10-14', 'ANIMATION');
+
+INSERT INTO Genre (name, description) VALUES
+    ('HORROR', 'Designed to scare and thrill, horror films often feature supernatural elements, monsters, or psychological terror.'),
+    ('COMEDY', 'Lighthearted and humorous, comedy movies aim to entertain with jokes, satire, and amusing situations.'),
+    ('ACTION', 'Packed with intense sequences, fights, and high-energy stunts, action films keep audiences on the edge of their seats.'),
+    ('THRILLER', 'Suspenseful and fast-paced, thrillers keep viewers engaged with twists, tension, and psychological intrigue.'),
+    ('DRAMA', 'Focused on emotional storytelling, dramas explore deep characters, real-life struggles, and human relationships.'),
+    ('ROMANCE', 'Centered on love and relationships, romance films showcase passion, heartbreak, and emotional connections.'),
+    ('SCI_FI', 'Exploring futuristic worlds, advanced technology, and space travel, sci-fi films push the boundaries of imagination.'),
+    ('CRIME', 'Revolving around law enforcement, criminals, and moral dilemmas, crime movies dive into heists, mysteries, and investigations.'),
+    ('ANIMATION', 'Hand-drawn or CGI visuals, animation films bring imaginative stories to life for all ages.');
