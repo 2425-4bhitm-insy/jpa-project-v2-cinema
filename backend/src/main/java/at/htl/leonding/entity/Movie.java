@@ -1,6 +1,5 @@
 package at.htl.leonding.entity;
 
-import at.htl.leonding.entity.enumerations.Genre;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -15,8 +14,8 @@ public class Movie {
     @Column
     private String title;
 
-    @Enumerated(EnumType.STRING)
-    @Column
+    @ManyToOne
+    @JoinColumn
     private Genre genre;
 
     @Column
