@@ -12,12 +12,9 @@ public class Department {
     @Column
     private String departmentName;
 
-    @Column
-    private int departmentCapacity;
 
-    public Department(String departmentName, int departmentCapacity) {
+    public Department(String departmentName) {
         this.departmentName = departmentName;
-        this.departmentCapacity = departmentCapacity;
     }
 
     public Department() {
@@ -30,14 +27,6 @@ public class Department {
 
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
-    }
-
-    public int getDepartmentCapacity() {
-        return departmentCapacity;
-    }
-
-    public void setDepartmentCapacity(int departmentCapacity) {
-        this.departmentCapacity = departmentCapacity;
     }
 
     public void setId(Long id) {

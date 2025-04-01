@@ -9,3 +9,11 @@ Content-Type: application/json
 ### GET all movies by age rating
 
 GET http://localhost:8080/api/movies/by-age/12
+
+### GET all equipment
+
+GET http://localhost:8080/api/equipment/
+
+### GET equipment by Id
+
+GET http://localhost:8080/api/equipment/2
