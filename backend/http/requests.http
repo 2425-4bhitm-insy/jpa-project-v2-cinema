@@ -5,3 +5,7 @@ Content-Type: application/json
 ###
 GET http://localhost:8080/api/employees
 Content-Type: application/json
+
+### GET all movies by age rating
+
+GET http://localhost:8080/api/movies/by-age/12

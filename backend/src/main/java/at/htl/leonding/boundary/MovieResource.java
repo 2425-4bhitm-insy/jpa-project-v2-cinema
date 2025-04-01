@@ -3,10 +3,7 @@ package at.htl.leonding.boundary;
 import at.htl.leonding.control.MovieRepo;
 import at.htl.leonding.entity.Movie;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
 import java.util.List;
@@ -22,5 +19,11 @@ public class MovieResource {
     @GET
     public List<Movie> getAllMovies() {
         return movieRepo.getAll();
+    }
+
+    @GET
+    @Path("/by-age/{age}")
+    public List<Movie> getMoviesByAge(@PathParam("age") int age) {
+        return movieRepo.getALlByAgeRating(age);
     }
 }

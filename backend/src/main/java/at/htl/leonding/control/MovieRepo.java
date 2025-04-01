@@ -12,4 +12,8 @@ public class MovieRepo implements PanacheRepository<Movie> {
     public List<Movie> getAll() {
         return listAll().stream().toList();
     }
+
+    public List<Movie> getALlByAgeRating(int age) {
+        return list("ageRating <= ?1", age ).stream().toList();
+    }
 }
