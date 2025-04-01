@@ -1,21 +1,21 @@
 package at.htl.leonding.entity;
 
-import at.htl.leonding.entity.enumerations.Department;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
 public class Employee extends Person {
-    @Enumerated(EnumType.STRING)
-    @Column
-    private Department department;
 
     @Column
     private double salary;
 
     @Column
     private LocalDate hireDate;
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
 
     public Employee() {}
 
