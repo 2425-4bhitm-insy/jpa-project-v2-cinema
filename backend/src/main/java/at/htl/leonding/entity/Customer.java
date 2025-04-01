@@ -11,24 +11,11 @@ import java.time.LocalDate;
 @Entity
 public class Customer extends Person {
 
-    @Enumerated(EnumType.STRING)
-    @Column
-    private Genre favoriteGenre;
-
-
     public Customer() {
     }
 
     public Customer(String name, String email, String phoneNumber, LocalDate birthDate, Genre favoriteGenre) {
         super(name, email, phoneNumber, birthDate);
-        this.favoriteGenre = favoriteGenre;
     }
 
-    public Genre getFavoriteGenre() {
-        return favoriteGenre;
-    }
-
-    public void setFavoriteGenre(Genre favoriteGenre) {
-        this.favoriteGenre = favoriteGenre;
-    }
 }
