@@ -3,3 +3,96 @@
 A Cinema Management System built using Java and JPA (Java Persistence API).
 It provides features for managing movies, screenings, bookings, and customers within a cinema.
 
+[plantuml, kino-erd, png]
+----
+@startuml
+entity EMPLOYEE {
++ ID : bigint
++ BIRTHDATE : date
++ HIREDATE : date
++ SALARY : double precision
++ EMAIL : varchar(255)
++ NAME : varchar(255)
++ PHONENUMBER : varchar(255)
++ DEPARTMENT : enum('cleaning', 'events', 'management', 'marketing', 'security', 'ticket_sales')
+}
+
+entity SCREENINGROOM {
++ ID : bigint
++ ROOMNUMBER : integer
++ SEATS : integer
+}
+
+entity MOVIE {
++ ID : bigint
++ AGEBRATING : integer
++ DURATION : integer
++ RELEASEDATE : date
++ DESCRIPTION : varchar(255)
++ TITLE : varchar(255)
++ GENRE : enum('action', 'animation', 'comedy', 'crime', 'drama', 'horror', 'romance', 'sci_fi', 'thriller')
+}
+
+entity CUSTOMER {
++ ID : bigint
++ BIRTHDATE : date
++ EMAIL : varchar(255)
++ NAME : varchar(255)
++ PHONENUMBER : varchar(255)
++ FAVORITEGENRE : enum('action', 'animation', 'comedy', 'crime', 'drama', 'horror', 'romance', 'sci_fi', 'thriller')
+}
+
+entity SHOWTIME {
++ ID : bigint
++ MOVIE_ID : bigint
++ ROOM_ID : bigint
++ SHOWDATETIME : timestamp
+}
+
+entity PAYMENT {
++ ID : bigint
++ AMOUNT : double precision
++ TRANSACTIONDATE : timestamp
++ CUSTOMER_ID : bigint
++ SHOWTIME_ID : bigint
+}
+
+entity TICKET {
++ ID : bigint
++ PRICE : double precision
++ SEATNUMBER : integer
++ CUSTOMER_ID : bigint
++ SHOWTIME_ID : bigint
+}
+
+entity REVIEW {
++ ID : bigint
++ RATING : integer
++ CUSTOMER_ID : bigint
++ MOVIE_ID : bigint
++ COMMENT : text
+}
+
+entity FOOD_ORDER {
++ ID : bigint
++ CUSTOMER_ID : bigint
++ SHOWTIME_ID : bigint
++ ITEM_NAME : varchar(255)
++ QUANTITY : integer
++ PRICE : double precision
++ ORDER_TIME : timestamp
+}
+
+' Beziehungen
+SHOWTIME }|--|| MOVIE : zeigt
+SHOWTIME }|--|| SCREENINGROOM : findet in
+TICKET }|--|| SHOWTIME : gehört zu
+TICKET }|--|| CUSTOMER : gekauft von
+PAYMENT }|--|| CUSTOMER : durchgeführt von
+PAYMENT }|--|| SHOWTIME : bezahlt für
+REVIEW }|--|| CUSTOMER : geschrieben von
+REVIEW }|--|| MOVIE : bewertet
+FOOD_ORDER }|--|| CUSTOMER : bestellt von
+FOOD_ORDER }|--|| SHOWTIME : für Vorstellung
+@enduml
+----

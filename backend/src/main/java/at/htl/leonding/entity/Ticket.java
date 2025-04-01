@@ -12,6 +12,10 @@ public class Ticket {
     @JoinColumn(name = "customer_id")
     Customer customer;
 
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    Employee employee;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
