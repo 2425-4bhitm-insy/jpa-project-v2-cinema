@@ -6,6 +6,7 @@ import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import io.quarkus.panache.common.Sort;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
@@ -26,5 +27,15 @@ public class MovieRepo implements PanacheRepository<Movie> {
                 "GROUP BY m.title " +
                 "ORDER BY avg(r.rating) DESC").project(MovieReviewDto.class);
         return query.stream().toList();
+    }
+
+    public List<Movie> getAllMoviesByGenre(String genre) {
+        return list("genre.name = ?1", genre).stream().toList();
+    }
+
+    public List<Movie> getShortestMovieByGenre() {
+        return getEntityManager()
+                .createNamedQuery("Movie.findShortestMovieByGenre", Movie.class)
+                .getResultList();
     }
 }

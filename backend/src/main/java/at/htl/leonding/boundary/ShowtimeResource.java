@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 
-@Path("showtime")
+@Path("showtimes")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class ShowtimeResource {
@@ -20,9 +20,17 @@ public class ShowtimeResource {
 
 
     @GET
+    public List<Showtime> getAllShowtimes() {
+        return showTimeRepo.getAll();
+    }
+
+
+    @GET
     @Path("/by-date/{date}")
     public List<Showtime> getShowtimeByDate(@PathParam("date") String date) {
         return showTimeRepo.getShowtimeByDate(LocalDate.parse(date));
     }
+
+
 
 }
