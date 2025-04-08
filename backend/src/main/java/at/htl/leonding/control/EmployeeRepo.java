@@ -13,4 +13,8 @@ public class EmployeeRepo implements PanacheRepository<Employee> {
         return listAll().stream().toList();
     }
 
+    public List<Employee> findSoldMoreThanTwoTickets() {
+        return getEntityManager().createNamedQuery("Employee.findSoldMoreThanTwoTickets", Employee.class).getResultList();
+    }
+
 }

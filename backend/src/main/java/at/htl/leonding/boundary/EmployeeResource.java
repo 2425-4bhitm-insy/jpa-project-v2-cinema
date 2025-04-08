@@ -23,4 +23,10 @@ public class EmployeeResource {
         return Response.ok(employeeRepo.getAll()).build();
     }
 
+    @GET
+    @Path("/sold-more-than-two-tickets")
+    public Response getEmployeesSoldMoreThanTwoTickets() {
+        return Response.ok().build();
+    }
+
 }
