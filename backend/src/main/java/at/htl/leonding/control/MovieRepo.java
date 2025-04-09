@@ -21,10 +21,15 @@ public class MovieRepo implements PanacheRepository<Movie> {
     }
 
     public List<MovieReviewDto> getAllMoviesSortedByRating() {
-        PanacheQuery<MovieReviewDto> query = find("SELECT m.title, avg(r.rating) " +
+//        PanacheQuery<MovieReviewDto> query = find("SELECT m.title, avg(r.rating) " +
+//                "FROM Review r JOIN r.movie m " +
+//                "GROUP BY m.title " +
+//                "ORDER BY avg(r.rating) DESC").project(MovieReviewDto.class);
+//
+        String query = "SELECT new at.htl.leonding.entity.dto.MovieReviewDto(m.title, avg(r.rating)) " +
                 "FROM Review r JOIN r.movie m " +
                 "GROUP BY m.title " +
-                "ORDER BY avg(r.rating) DESC").project(MovieReviewDto.class);
-        return query.stream().toList();
+                "ORDER BY avg(r.rating) DESC";
+        return getEntityManager().createQuery(query, MovieReviewDto.class).getResultList();
     }
 }
