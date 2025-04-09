@@ -5,6 +5,21 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(
+                name = "Movie.findShortestMovieByGenre",
+                query = """
+                    SELECT g.name, COUNT(m)
+                    FROM Movie m
+                    JOIN m.genre g
+                    GROUP BY g.name
+                    HAVING MIN(m.duration) = (
+                        SELECT MIN(m2.duration)
+                        FROM Movie m2
+                    )
+                """
+        )
+})
 public class Movie {
 
     @Id

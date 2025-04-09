@@ -10,12 +10,12 @@ public class ScreeningRoom {
     private Long id;
 
     @Column
-    private int roomNumber;
+    private String roomNumber;
 
     @Column
     private int seats;
 
-    public ScreeningRoom(int roomNumber, int seats) {
+    public ScreeningRoom(String roomNumber, int seats) {
         this.roomNumber = roomNumber;
         this.seats = seats;
     }
@@ -32,11 +32,11 @@ public class ScreeningRoom {
         this.seats = seats;
     }
 
-    public int getRoomNumber() {
+    public String getRoomNumber() {
         return roomNumber;
     }
 
-    public void setRoomNumber(int roomNumber) {
+    public void setRoomNumber(String roomNumber) {
         this.roomNumber = roomNumber;
     }
 

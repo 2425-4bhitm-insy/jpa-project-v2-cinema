@@ -5,6 +5,16 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(
+                name = "Employee.findSoldMoreThanTwoTickets",
+                query = "SELECT COUNT(t.employee.id), t.employee.id, t.employee.name " +
+                        "FROM Ticket t " +
+                        "JOIN t.employee e " +
+                        "GROUP BY t.employee.id, t.employee.name " +
+                        "HAVING COUNT(t.employee.id) > 2"
+        )
+})
 public class Employee extends Person {
 
     @Column
