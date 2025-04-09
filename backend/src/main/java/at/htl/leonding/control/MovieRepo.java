@@ -6,6 +6,7 @@ import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import io.quarkus.panache.common.Sort;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.persistence.TypedQuery;
 
 import java.util.List;
 
@@ -21,10 +22,16 @@ public class MovieRepo implements PanacheRepository<Movie> {
     }
 
     public List<MovieReviewDto> getAllMoviesSortedByRating() {
-        PanacheQuery<MovieReviewDto> query = find("SELECT m.title, avg(r.rating) " +
+//        PanacheQuery<MovieReviewDto> query = find("SELECT m.title, avg(r.rating) " +
+//                "FROM Review r JOIN r.movie m " +
+//                "GROUP BY m.title " +
+//                "ORDER BY avg(r.rating) DESC").project(MovieReviewDto.class);
+//        return query.stream().toList();
+
+        TypedQuery<MovieReviewDto> query = getEntityManager().createQuery("SELECT new at.htl.leonding.entity.dto.MovieReviewDto(m.title, avg(r.rating)) " +
                 "FROM Review r JOIN r.movie m " +
                 "GROUP BY m.title " +
-                "ORDER BY avg(r.rating) DESC").project(MovieReviewDto.class);
-        return query.stream().toList();
+                "ORDER BY avg(r.rating) DESC", MovieReviewDto.class);
+        return query.getResultList();
     }
 }
