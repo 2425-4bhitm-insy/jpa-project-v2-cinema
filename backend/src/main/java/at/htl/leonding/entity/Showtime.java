@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 public class Showtime {
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
