@@ -23,7 +23,7 @@ public class EquipmentResource {
 
     @GET
     @Path("/{id}")
-    public Response getEquipmentById(@QueryParam("id") Long id) {
+    public Response getEquipmentById(@PathParam("id") Long id) {
         return Response.ok(equipmentRepo.findEquipmentById(id)).build();
     }
 

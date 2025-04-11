@@ -26,7 +26,7 @@ public class EmployeeResource {
     @GET
     @Path("/sold-more-than-two-tickets")
     public Response getEmployeesSoldMoreThanTwoTickets() {
-        return Response.ok().build();
+        return Response.ok(employeeRepo.findSoldMoreThanTwoTickets()).build();
     }
 
 }

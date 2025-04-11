@@ -16,4 +16,5 @@ public class EquipmentRepo implements PanacheRepository<Equipment> {
     public Equipment findEquipmentById(Long id) {
         return findById(id);
     }
+
 }
