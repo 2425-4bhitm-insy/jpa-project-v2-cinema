@@ -12,6 +12,15 @@ import java.time.LocalDate;
                     join c.favoriteGenre g
                     where g.name = ?1
                 """
+        ),
+        @NamedQuery(
+                name = "Customer.getMostWealthiestCustomers",
+                query = """
+                    select new at.htl.leonding.entity.dto.CustomerTicketDto(c.name, SUM(t.price)) from Ticket t
+                    join t.customer c
+                    group by 1 order by 2 desc
+                    limit 5
+                """
         )
 })
 public class Customer extends Person {

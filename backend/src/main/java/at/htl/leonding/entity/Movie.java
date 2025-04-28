@@ -9,13 +9,14 @@ import java.time.LocalDate;
         @NamedQuery(
                 name = "Movie.findShortestMovieByGenre",
                 query = """
-                    SELECT g.name, COUNT(m)
+                    SELECT m
                     FROM Movie m
                     JOIN m.genre g
-                    GROUP BY g.name
-                    HAVING MIN(m.duration) = (
-                        SELECT MIN(m2.duration)
+                    where g.name = ?1 and m.duration = (
+                        SELECT min(m2.duration)
                         FROM Movie m2
+                        JOIN m2.genre g2
+                        where g2.name = ?1
                     )
                 """
         )

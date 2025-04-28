@@ -27,4 +27,10 @@ public class CustomerResource {
     public Response getAllCustomerWithGenre(@PathParam("genre") String genre) {
         return Response.ok(customerRepo.getAllCustomerWithGenre(genre)).build();
     }
+
+    @GET
+    @Path("/mostWealthiest")
+    public Response getMostWealthiestCustomers() {
+        return Response.ok(customerRepo.getMostWealthiestCustomers()).build();
+    }
 }

@@ -6,11 +6,18 @@ import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import io.quarkus.panache.common.Sort;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
 @ApplicationScoped
 public class MovieRepo implements PanacheRepository<Movie> {
+
+
+
+    public Movie findMovieById(Long id) {
+        return findById(id);
+    }
 
     public List<Movie> getAll() {
         return listAll().stream().toList();
@@ -37,9 +44,10 @@ public class MovieRepo implements PanacheRepository<Movie> {
         return list("genre.name = ?1", genre).stream().toList();
     }
 
-    public List<Movie> getShortestMovieByGenre() {
+    public List<Movie> getShortestMovieByGenre(String genre) {
         return getEntityManager()
                 .createNamedQuery("Movie.findShortestMovieByGenre", Movie.class)
+                .setParameter(1, genre)
                 .getResultList();
     }
 }

@@ -1,6 +1,7 @@
 package at.htl.leonding.control;
 
 import at.htl.leonding.entity.Customer;
+import at.htl.leonding.entity.dto.CustomerTicketDto;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.jboss.resteasy.plugins.providers.ReactiveStreamProvider;
@@ -18,6 +19,12 @@ public class CustomerRepo implements PanacheRepository<Customer> {
         return getEntityManager()
                 .createNamedQuery("Customer.getAllCustomerWithGenre", Customer.class)
                 .setParameter(1, genreName)
+                .getResultList();
+    }
+
+    public List<CustomerTicketDto> getMostWealthiestCustomers() {
+        return getEntityManager()
+                .createNamedQuery("Customer.getMostWealthiestCustomers", CustomerTicketDto.class)
                 .getResultList();
     }
 }

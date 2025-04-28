@@ -1,6 +1,7 @@
 package at.htl.leonding.entity;
 
 import jakarta.persistence.*;
+import org.jboss.resteasy.spi.touri.MappedBy;
 
 @Entity
 public class Review {
@@ -13,7 +14,7 @@ public class Review {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "movie_id")
     private Movie movie;
 

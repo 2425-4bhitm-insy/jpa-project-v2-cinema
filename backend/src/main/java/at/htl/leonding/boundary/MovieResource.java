@@ -18,6 +18,12 @@ public class MovieResource {
     MovieRepo movieRepo;
 
     @GET
+    @Path("{id}")
+    public Movie getMovieById(@PathParam("id") Long id) {
+        return movieRepo.findMovieById(id);
+    }
+
+    @GET
     public List<Movie> getAllMovies() {
         return movieRepo.getAll();
     }
@@ -32,5 +38,11 @@ public class MovieResource {
     @Path("/sorted-by-rating")
     public List<MovieReviewDto> getMoviesSortedByRating() {
         return movieRepo.getAllMoviesSortedByRating();
+    }
+
+    @GET
+    @Path("/shortest-movie-by-genre/{genre}")
+    public List<Movie> getShortestMovieByGenre(@PathParam("genre") String genre) {
+        return movieRepo.getShortestMovieByGenre(genre);
     }
 }

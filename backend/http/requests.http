@@ -27,8 +27,17 @@ GET http://localhost:8080/api/movies/sorted-by-rating
 GET http://localhost:8080/api/employees/sold-more-than-tickets/2
 Content-Type: */*
 
-### GET all employees
+### GET all customers
 GET http://localhost:8080/api/customers
 
-### GET all employees by favourite genre
+### GET all customers by favourite genre
 GET http://localhost:8080/api/customers/byGenre/HORROR
+
+### GET movie by id
+GET http://localhost:8080/api/movies/1
+
+### GET shortest movie by genre
+GET http://localhost:8080/api/movies/shortest-movie-by-genre/ANIMATION
+
+### GET most wealthiest customers
+GET http://localhost:8080/api/customers/mostWealthiest
