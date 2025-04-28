@@ -5,7 +5,10 @@ import jakarta.persistence.*;
 public class Ticket {
 
     @ManyToOne
-    @JoinColumn(name = "showtime_id")
+    @JoinColumns({
+            @JoinColumn(name = "movie_id"),
+            @JoinColumn(name = "room_id")
+    })
     Showtime showtime;
 
     @ManyToOne
