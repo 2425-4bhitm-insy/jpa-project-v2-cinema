@@ -4,6 +4,16 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(
+                name = "Customer.getAllCustomerWithGenre",
+                query = """
+                    select c from Customer c
+                    join c.favoriteGenre g
+                    where g.name = ?1
+                """
+        )
+})
 public class Customer extends Person {
 
 

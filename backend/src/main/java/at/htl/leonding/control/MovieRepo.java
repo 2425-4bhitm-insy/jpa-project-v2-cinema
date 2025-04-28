@@ -32,4 +32,14 @@ public class MovieRepo implements PanacheRepository<Movie> {
                 "ORDER BY avg(r.rating) DESC";
         return getEntityManager().createQuery(query, MovieReviewDto.class).getResultList();
     }
+
+    public List<Movie> getAllMoviesByGenre(String genre) {
+        return list("genre.name = ?1", genre).stream().toList();
+    }
+
+    public List<Movie> getShortestMovieByGenre() {
+        return getEntityManager()
+                .createNamedQuery("Movie.findShortestMovieByGenre", Movie.class)
+                .getResultList();
+    }
 }
