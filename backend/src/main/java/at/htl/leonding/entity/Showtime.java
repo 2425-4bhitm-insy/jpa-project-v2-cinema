@@ -9,22 +9,25 @@ import java.time.LocalDateTime;
 @Entity
 public class Showtime {
 
-//    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
-
     @Column
     private LocalDateTime showDateTime;
-
-//    @ManyToOne
-//    @JoinColumn(name = "movie_id")
-//    private Movie movie;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "room_id")
-//    private ScreeningRoom room;
 
     @EmbeddedId
     private ShowtimeId showtimeId;
 
+    public LocalDateTime getShowDateTime() {
+        return showDateTime;
+    }
 
+    public void setShowDateTime(LocalDateTime showDateTime) {
+        this.showDateTime = showDateTime;
+    }
+
+    public ShowtimeId getShowtimeId() {
+        return showtimeId;
+    }
+
+    public void setShowtimeId(ShowtimeId showtimeId) {
+        this.showtimeId = showtimeId;
+    }
 }

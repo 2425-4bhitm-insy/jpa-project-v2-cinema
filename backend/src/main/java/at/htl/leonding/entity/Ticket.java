@@ -40,6 +40,14 @@ public class Ticket {
 
     }
 
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
     public double getPrice() {
         return price;
     }
