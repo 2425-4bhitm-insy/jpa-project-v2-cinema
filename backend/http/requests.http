@@ -41,3 +41,41 @@ GET http://localhost:8080/api/movies/shortest-movie-by-genre/ANIMATION
 
 ### GET most wealthiest customers
 GET http://localhost:8080/api/customers/mostWealthiest
+
+### CREATE new movie
+POST http://localhost:8080/api/movies
+Content-Type: application/json
+
+{
+  "title": "Inception",
+  "duration": 148,
+  "ageRating": 12,
+  "description": "A mind-bending thriller by Christopher Nolan.",
+  "releaseDate": 2010,
+  "genre": {
+    "id": 1
+  }
+}
+
+### UPDATE existing Movie
+
+PUT http://localhost:8080/api/movies/11
+Content-Type: application/json
+
+{
+  "title": "Inception - Director's Cut",
+  "duration": 152,
+  "ageRating": 12,
+  "description": "Extended version of the mind-bending thriller.",
+  "releaseDate": 2010,
+  "genre": {
+    "id": 1
+  }
+}
+
+### DELETE existing Movie
+
+DELETE http://localhost:8080/api/movies/11
+Content-Type: */*
+
+

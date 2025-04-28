@@ -4,7 +4,6 @@ import at.htl.leonding.entity.Customer;
 import at.htl.leonding.entity.dto.CustomerTicketDto;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
-import org.jboss.resteasy.plugins.providers.ReactiveStreamProvider;
 
 import java.util.List;
 

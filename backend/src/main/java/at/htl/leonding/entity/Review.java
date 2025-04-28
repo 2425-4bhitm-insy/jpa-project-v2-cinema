@@ -14,7 +14,7 @@ public class Review {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
