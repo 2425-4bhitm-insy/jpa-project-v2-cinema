@@ -16,12 +16,12 @@ public class EmployeeRepo implements PanacheRepository<Employee> {
         return listAll().stream().toList();
     }
 
-    public List<EmployeeSoldDto> findSoldMoreThanTwoTickets() {
+    public List<EmployeeSoldDto> findSoldMoreThanTickets(int tickets) {
          String query = "SELECT new at.htl.leonding.entity.dto.EmployeeSoldDto(COUNT(t.employee.id), t.employee.id, t.employee.name) " +
                 "FROM Ticket t " +
                 "JOIN t.employee e " +
                 "GROUP BY t.employee.id, t.employee.name " +
-                "HAVING COUNT(t.employee.id) > 2";
+                "HAVING COUNT(t.employee.id) > " + tickets;
 
         return getEntityManager().createQuery(query, EmployeeSoldDto.class).getResultList();
     }

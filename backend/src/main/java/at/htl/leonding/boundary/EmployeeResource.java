@@ -2,10 +2,7 @@ package at.htl.leonding.boundary;
 
 import at.htl.leonding.control.EmployeeRepo;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -24,9 +21,9 @@ public class EmployeeResource {
     }
 
     @GET
-    @Path("/sold-more-than-two-tickets")
-    public Response getEmployeesSoldMoreThanTwoTickets() {
-        return Response.ok(employeeRepo.findSoldMoreThanTwoTickets()).build();
+    @Path("/sold-more-than-tickets/{tickets}")
+    public Response getEmployeesSoldMoreThanTwoTickets(@PathParam("tickets") int tickets) {
+        return Response.ok(employeeRepo.findSoldMoreThanTickets(tickets)).build();
     }
 
 }

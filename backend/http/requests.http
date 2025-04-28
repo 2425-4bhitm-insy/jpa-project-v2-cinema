@@ -22,7 +22,7 @@ GET http://localhost:8080/api/equipment/2
 
 GET http://localhost:8080/api/movies/sorted-by-rating
 
-### GET all employees who sold more than 2 tickets
+### GET all employees who sold more than X tickets
 
-GET http://localhost:8080/api/employees/sold-more-than-two-tickets
+GET http://localhost:8080/api/employees/sold-more-than-tickets/2
 Content-Type: */*
