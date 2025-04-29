@@ -70,7 +70,7 @@ public class MovieResource {
 
     @DELETE
     @Transactional
-    @Path("/{id}")
+    @Path("/delete/{id}")
     public Response deleteMovie(@PathParam("id") Long id) {
         boolean deleted = movieRepo.deleteMovie(id);
         return Response.ok().build();

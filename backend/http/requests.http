@@ -59,7 +59,7 @@ Content-Type: application/json
 
 ### UPDATE existing Movie
 
-PUT http://localhost:8080/api/movies/11
+PUT http://localhost:8080/api/movies/1
 Content-Type: application/json
 
 {
@@ -75,5 +75,5 @@ Content-Type: application/json
 
 ### DELETE existing Movie
 
-DELETE http://localhost:8080/api/movies/1
+DELETE http://localhost:8080/api/movies/delete/1
 Content-Type: */*
