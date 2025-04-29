@@ -35,7 +35,7 @@ class CustomerRepoTest {
 
     @Test
     void testGetMostWealthiestCustomers() {
-        List<CustomerTicketDto> wealthiestCustomers = customerRepo.getMostWealthiestCustomers();
+        List<CustomerTicketDto> wealthiestCustomers = customerRepo.getTopCustomers();
         assertNotNull(wealthiestCustomers);
         assertFalse(wealthiestCustomers.isEmpty());
 

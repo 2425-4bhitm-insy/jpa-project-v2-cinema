@@ -30,7 +30,7 @@ public class CustomerResource {
 
     @GET
     @Path("/mostWealthiest")
-    public Response getMostWealthiestCustomers() {
-        return Response.ok(customerRepo.getMostWealthiestCustomers()).build();
+    public Response getTopCustomer() {
+        return Response.ok(customerRepo.getTopCustomers()).build();
     }
 }

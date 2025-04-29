@@ -21,7 +21,7 @@ public class CustomerRepo implements PanacheRepository<Customer> {
                 .getResultList();
     }
 
-    public List<CustomerTicketDto> getMostWealthiestCustomers() {
+    public List<CustomerTicketDto> getTopCustomers() {
         return getEntityManager()
                 .createNamedQuery("Customer.getMostWealthiestCustomers", CustomerTicketDto.class)
                 .getResultList();
