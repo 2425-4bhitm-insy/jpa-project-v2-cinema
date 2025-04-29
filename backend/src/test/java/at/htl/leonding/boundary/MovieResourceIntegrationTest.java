@@ -92,7 +92,7 @@ public class MovieResourceIntegrationTest {
     @Test
     void testDeleteMovie() {
         given()
-                .when().delete("/movies/2")
+                .when().delete("/movies/delete/2")
                 .then()
                 .statusCode(200);
     }
