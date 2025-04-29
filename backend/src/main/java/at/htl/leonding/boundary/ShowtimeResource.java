@@ -7,6 +7,7 @@ import jakarta.ws.rs.core.MediaType;
 import at.htl.leonding.control.ShowtimeRepo;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -28,7 +29,7 @@ public class ShowtimeResource {
     @GET
     @Path("/by-date/{date}")
     public List<Showtime> getShowtimeByDate(@PathParam("date") String date) {
-        return showTimeRepo.getShowtimeByDate(LocalDate.parse(date));
+        return showTimeRepo.getShowtimeByDate(LocalDateTime.parse(date));
     }
 
 

@@ -5,6 +5,7 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @ApplicationScoped
@@ -15,7 +16,7 @@ public class ShowtimeRepo implements PanacheRepository<Showtime> {
         return listAll().stream().toList();
     }
 
-    public List<Showtime> getShowtimeByDate(LocalDate date) {
+    public List<Showtime> getShowtimeByDate(LocalDateTime date) {
         return list("showDateTime = ?1", date).stream().toList();
     }
 
