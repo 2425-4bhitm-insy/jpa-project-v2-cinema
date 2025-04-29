@@ -3,6 +3,7 @@ package at.htl.leonding.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @NamedQueries({
@@ -45,6 +46,9 @@ public class Movie {
 
     @Column
     LocalDate releaseDate;
+
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews;
 
     public Movie(String title, Genre genre, int duration, int ageRating, String description, LocalDate releaseDate) {
         this.title = title;

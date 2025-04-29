@@ -2,6 +2,8 @@ package at.htl.leonding.entity;
 
 import jakarta.inject.Inject;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -13,6 +15,7 @@ public class Showtime {
     private LocalDateTime showDateTime;
 
     @EmbeddedId
+    @Cascade(CascadeType.ALL)
     private ShowtimeId showtimeId;
 
     public LocalDateTime getShowDateTime() {

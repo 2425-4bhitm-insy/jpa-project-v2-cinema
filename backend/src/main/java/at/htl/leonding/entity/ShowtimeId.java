@@ -7,6 +7,7 @@ import java.util.Objects;
 
 @Embeddable
 public class ShowtimeId implements Serializable {
+
     private long movieId;
     private long roomId;
 
