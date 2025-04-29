@@ -17,12 +17,12 @@ class MovieRepoTest {
 
     @Test
     void testFindMovieById_existing() {
-        Movie movie = movieRepo.find("title", "Inception").firstResult();
+        Movie movie = movieRepo.find("title", "Titanic").firstResult();
         assertNotNull(movie);
 
         Movie found = movieRepo.findMovieById(movie.getId());
         assertNotNull(found);
-        assertEquals("Inception", found.getTitle());
+        assertEquals("Titanic", found.getTitle());
     }
 
     @Test
