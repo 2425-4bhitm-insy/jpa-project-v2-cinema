@@ -29,7 +29,7 @@ public class CustomerResource {
     }
 
     @GET
-    @Path("/mostWealthiest")
+    @Path("/highest-spending-customer")
     public Response getTopCustomer() {
         return Response.ok(customerRepo.getTopCustomers()).build();
     }

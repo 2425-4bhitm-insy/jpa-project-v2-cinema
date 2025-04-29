@@ -8,6 +8,7 @@ import java.util.Date;
 
 @MappedSuperclass
 public class Person {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
